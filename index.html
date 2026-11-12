@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#6d28d9">
+  <meta name="description" content="Create a beautiful, personal mini website for someone special. Choose a design, add your message and photos, and share it in minutes.">
+  <title>LittlePages — Make something personal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./platform.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+  <script defer src="./platform.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#/" aria-label="LittlePages home"><span class="brand-mark">✦</span><span>little<span class="brand-accent">pages</span></span></a>
+    <nav><a href="#templates">Templates</a><a href="#how">How it works</a></nav>
+    <div class="top-actions"><button class="btn btn-quiet" id="dashboardNav">My pages</button><button class="btn btn-primary btn-small" id="signInNav">Sign in</button></div>
+  </header>
+
+  <main id="app">
+    <section class="hero" id="homeView">
+      <div class="hero-copy"><div class="eyebrow"><span class="live-dot"></span> A little corner of the internet, made by you</div>
+        <h1>Make a tiny website<br><em>for someone special.</em></h1>
+        <p>Choose a design, add your own words and photos, and send them a link they’ll want to keep.</p>
+        <div class="hero-actions"><a class="btn btn-primary btn-large" href="#templates">Pick a template <span>↗</span></a><a class="btn btn-glass btn-large" href="#how">See how it works</a></div>
+        <div class="trust-row"><span>✓ Free to create</span><span>✓ No coding</span><span>✓ Ready in minutes</span></div>
+      </div>
+      <div class="hero-art" aria-label="Preview of personal mini websites"><div class="float-card card-back"><div class="mock-top"></div><div class="mock-flower">✿</div><p>A little note<br>just for you</p></div><div class="float-card card-front"><div class="mock-top"></div><div class="mock-heart">♡</div><p class="script">You make<br>life lovely.</p><span class="mock-pill">open your surprise</span></div><div class="sparkle s1">✧</div><div class="sparkle s2">✦</div><div class="sparkle s3">✧</div></div>
+    </section>
+
+    <section class="steps" id="how"><div class="step"><b>01</b><span class="step-icon">▧</span><h3>Pick a design</h3><p>Start with one of our original mini-site styles.</p></div><div class="step"><b>02</b><span class="step-icon">✎</span><h3>Make it yours</h3><p>Add a name, a message, photos and a colour theme.</p></div><div class="step"><b>03</b><span class="step-icon">♡</span><h3>Send the link</h3><p>Publish your page and share it anywhere.</p></div></section>
+
+    <section class="gallery-section" id="templates"><div class="section-heading"><div><div class="eyebrow">THE STARTING POINT</div><h2>Choose your little world</h2><p>Three original designs to get you started. More can be added later.</p></div><span class="template-count">03 DESIGNS</span></div>
+      <div class="filter-row"><label class="search-box"><span>⌕</span><input id="templateSearch" type="search" placeholder="Search templates…" aria-label="Search templates"></label><div class="filter-pills"><button class="filter-pill active" data-filter="all">All designs</button><button class="filter-pill" data-filter="celebration">Celebration</button><button class="filter-pill" data-filter="letter">Letters</button></div></div>
+      <div class="template-grid" id="templateGrid"></div>
+    </section>
+
+    <section class="bottom-cta"><div class="eyebrow">YOUR IDEA, YOUR PAGE</div><h2>A small page can say a lot.</h2><p>Make something thoughtful in a few minutes.</p><a class="btn btn-light" href="#templates">Create your page <span>↗</span></a></section>
+  </main>
+
+  <main id="routeView" class="route-view" hidden></main>
+
+  <footer><a class="brand" href="#/"><span class="brand-mark">✦</span><span>little<span class="brand-accent">pages</span></span></a><p>Made for the people who make life special.</p><span class="footer-note">A personal page builder · GitHub Pages ready</span></footer>
+
+  <div class="modal-backdrop" id="authModal" hidden><section class="modal auth-modal"><button class="modal-close" data-close="authModal" aria-label="Close">×</button><div class="eyebrow">YOUR LITTLE PAGES</div><h2 id="authTitle">Welcome back</h2><p class="modal-sub" id="authDescription">Sign in to create, save and manage your pages.</p><form id="authForm"><label>Email address<input type="email" id="authEmail" autocomplete="email" required placeholder="you@example.com"></label><label>Password<input type="password" id="authPassword" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters"></label><button class="btn btn-primary btn-full" id="authSubmit">Sign in</button></form><button class="text-button" id="authToggle">New here? Create an account</button><p class="form-message" id="authMessage" role="status"></p><p class="fine-print">Email confirmation may be required before your first sign-in.</p></section></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
